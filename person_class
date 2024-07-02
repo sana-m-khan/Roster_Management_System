@@ -1,0 +1,62 @@
+/**
+ *
+ * @author S. Khan
+ * @version 02/08/24
+ */
+ 
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Person
+//this might be needed to help code run --> {
+    private String firstName = "";
+    private String lastName = "";
+    private String email = "";
+    private String dateOfBirth = "";
+  
+    // Constructor for objects of class Person
+    
+    public Person(String firstName, String lastName, String dateOfBirth, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.email = email;
+    }
+    
+    public Person(String firstName, String lastName, String dateOfBirth) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+    }
+   
+    public String getFN() {
+        return firstName;
+    }
+    
+    public String getLN() {
+        return lastName;
+    }
+    
+    public String getDOB() {
+        return dateOfBirth;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+    
+    public void setFN(String firstName) {
+        this.firstName = firstName;
+    }
+    
+    public void setLN(String lastName) {
+        this.lastName = lastName;
+    }
+    
+    public void setDOB(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+    
+    public String toString() {
+        return("First Name: " + getFN() + "Last Name: " + getLN() + "Email: " + getEmail() + "DOB: " + getDOB());
+    }
+}
