@@ -1,0 +1,43 @@
+public class Student extends Person
+{
+    // instance variables - replace the example below with your own
+    private String studentID = "";
+    private int grade = 0;
+    
+    public Student(String firstName, String lastName, String dateOfBirth, String email, String studentID, int grade) {
+     super(firstName, lastName, dateOfBirth, email);
+     this.studentID = studentID;
+     this.grade = grade;
+    }
+    
+    public String getSID() {
+     return studentID;
+    }
+    
+    public void setSID(String studentID) {
+       this.studentID = studentID; 
+    }
+    
+     public String getGrade() {
+     if (grade == 1) {
+         return("Freshman");
+     }
+     if (grade == 2) {
+         return("Sophomore");
+     }
+     if (grade == 3) {
+         return("Junior");
+     }
+     else {
+         return("Senior");
+     }
+    }
+   
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+    
+    public String toString() {
+     return(super.toString() + "ID #: " + getSID() + "Grade level " + getGrade()); 
+    }
+}
