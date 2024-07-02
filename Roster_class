@@ -1,0 +1,79 @@
+
+/** 
+ * @author S. Khan
+ */
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Roster
+{
+    // instance variables - replace the example below with your own
+    private final ArrayList<Student> classList; 
+    private final static Scanner s = new Scanner(System.in);
+    private int SID = 1; 
+    
+    
+    public Roster()
+    {
+        this.classList = new ArrayList<>();
+    }
+   
+    public void removeStudent() {
+        printRoster();
+        System.out.println("Enter the number of the student you would like to remove: ");
+        int choice = s.nextInt();
+        classList.remove(choice);
+    }
+    
+    public void printRoster() {
+        for (int i = 0; i < classList.size(); i++) {
+            System.out.println((i + 1) + ": " + classList.get(i)); 
+        }
+    }
+    
+    public void search() {
+        System.out.println("Enter the Student's first name: ");
+        String fn = s.nextLine();
+        for (int i = 0; i < classList.size(); i++) {
+            Student tempstudent = classList.get(i);
+            if (fn.equals(tempstudent.getFN())) {
+                System.out.println(classList.get(i));
+            }
+            
+        }
+    }
+  
+    public void addStudent() 
+    {
+        String firstName="";
+        String lastName="";
+        String email="";
+        String dateOfBirth = "";
+        String studentID = Integer.toString(SID);
+        int grade = -1;
+        
+        while (firstName.equals("")) {
+         System.out.println("Please enter student first name: ");
+         firstName = s.nextLine();
+        }
+        while (lastName.equals("")) {
+         System.out.println("Please enter student last name: ");
+         lastName = s.nextLine();
+        }
+        while (email.equals("")){
+         System.out.println("Please enter student email, if no email press enter: ");
+         email = s.nextLine();
+        }
+        while (dateOfBirth.equals("")){
+         System.out.println("Please enter student date of birth: ");
+         dateOfBirth = s.nextLine();
+        }
+        while (grade < 1 || grade > 4) {
+         System.out.print("Class \n1. Freshamn\n2. Sophomore\n3. Junior\n4. Senior");
+         grade = s.nextInt();
+        }
+        
+        classList.add(new Student(firstName, lastName, dateOfBirth, email, studentID, grade));
+        SID++;
+    }
+}
